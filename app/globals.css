@@ -521,3 +521,257 @@ a {
   text-align: center;
   padding: 1.5rem;
 }
+
+/* Reviews Section & Lazy Loading States */
+.reviews-section {
+  margin: 3.5rem 0 2rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.75rem;
+}
+
+.reviews-sub {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+.btn-review-toggle {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.5rem 1.1rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-review-toggle:hover {
+  opacity: 0.9;
+}
+
+.reviews-summary-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  background: var(--bg);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.rating-score-box {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.big-rating {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.rating-total {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.rating-filter-pills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pill-btn {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 9999px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.pill-btn:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+.pill-btn.active {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.review-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.25rem;
+  background: #fff;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.review-author-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.review-author {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.verified-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #059669;
+  background: #ecfdf5;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+}
+
+.review-date {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.review-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0.4rem 0 0.3rem;
+  color: var(--ink);
+}
+
+.review-body {
+  font-size: 0.92rem;
+  color: #334155;
+  line-height: 1.5;
+  margin: 0 0 0.75rem;
+}
+
+.btn-helpful {
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.btn-helpful:hover:not(:disabled) {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.btn-helpful.voted {
+  color: #059669;
+  border-color: #a7f3d0;
+  background: #ecfdf5;
+  cursor: default;
+}
+
+/* Review Form */
+.review-form {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+}
+
+.review-form h3 {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+}
+
+.form-group {
+  margin-bottom: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.btn-submit-review {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Skeleton Loading State for next/dynamic */
+.reviews-loading {
+  margin: 3.5rem 0 2rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.75rem;
+}
+
+.loading-sub {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.reviews-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.skeleton-box,
+.skeleton-card {
+  animation: pulse 1.5s infinite;
+  background: #e2e8f0;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
