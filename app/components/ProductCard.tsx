@@ -4,7 +4,16 @@ import Stars from "./Stars";
 import type { Product } from "../data/products";
 
 // The card takes one typed product as a prop. TypeScript checks every field.
-export default function ProductCard({ product }: { product: Product }) {
+export default function ProductCard({
+  product,
+  priority = false,
+}: {
+  product: Product;
+  priority?: boolean;
+}) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const imageSrc = `${basePath}${product.image}`;
+
   return (
     <Link href={`/products/${product.id}`} className="card">
       <div
@@ -14,9 +23,10 @@ export default function ProductCard({ product }: { product: Product }) {
         }}
       >
         <Image
-          src={product.image}
+          src={imageSrc}
           alt={product.name}
           fill
+          priority={priority}
           sizes="(min-width: 1040px) 240px, (min-width: 720px) 33vw, 100vw"
           style={{ objectFit: "cover" }}
         />
