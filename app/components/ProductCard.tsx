@@ -13,14 +13,14 @@ export default function ProductCard({ product }: { product: Product }) {
           background: `linear-gradient(135deg, ${product.accent}, ${product.accent2})`,
         }}
       >
-        {product.badge && <span className="card-badge">{product.badge}</span>}
         <Image
           src={product.image}
           alt={product.name}
           fill
           sizes="(min-width: 1040px) 240px, (min-width: 720px) 33vw, 100vw"
-          style={{ objectFit: "contain", padding: "1.25rem" }}
+          style={{ objectFit: "cover" }}
         />
+        {product.badge && <span className="card-badge">{product.badge}</span>}
       </div>
       <div className="card-body">
         <span className="card-category">{product.category}</span>

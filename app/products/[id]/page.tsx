@@ -60,15 +60,15 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             position: "relative",
           }}
         >
-          {product.badge && <span className="card-badge">{product.badge}</span>}
           <Image
             src={product.image}
             alt={product.name}
             fill
             priority
             sizes="(min-width: 720px) 340px, 100vw"
-            style={{ objectFit: "contain", padding: "2rem" }}
+            style={{ objectFit: "cover" }}
           />
+          {product.badge && <span className="card-badge">{product.badge}</span>}
         </div>
 
         <div className="detail-body">
