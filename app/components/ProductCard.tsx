@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Stars from "./Stars";
 import type { Product } from "../data/products";
@@ -13,7 +14,13 @@ export default function ProductCard({ product }: { product: Product }) {
         }}
       >
         {product.badge && <span className="card-badge">{product.badge}</span>}
-        <span className="card-emoji">{product.emoji}</span>
+        <Image
+          src={product.image}
+          alt={product.name}
+          fill
+          sizes="(min-width: 1040px) 240px, (min-width: 720px) 33vw, 100vw"
+          style={{ objectFit: "contain", padding: "1.25rem" }}
+        />
       </div>
       <div className="card-body">
         <span className="card-category">{product.category}</span>

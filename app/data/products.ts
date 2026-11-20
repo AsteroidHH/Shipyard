@@ -12,6 +12,7 @@ export interface Product {
   badge?: string; // optional ribbon like "New" or "Popular"
   description: string;
   specs: string[];
+  image: string; // optimized image path in public/products/
 }
 
 export const products: Product[] = [
@@ -29,6 +30,7 @@ export const products: Product[] = [
     description:
       "A lightweight daily trainer with a springy foam midsole and a breathable knit upper. Comfortable from the first mile to the last.",
     specs: ["Knit upper", "Foam midsole", "320g per shoe", "Unisex sizing"],
+    image: "/products/wave-runner.webp",
   },
   {
     id: "trail-blazer",
@@ -43,6 +45,7 @@ export const products: Product[] = [
     description:
       "Aggressive lugs and a rock plate keep you steady on trails, while a water-resistant upper handles mud and puddles.",
     specs: ["Rock plate", "6mm lugs", "Water-resistant", "Reinforced toe"],
+    image: "/products/trail-blazer.webp",
   },
   {
     id: "pulse-buds",
@@ -58,6 +61,7 @@ export const products: Product[] = [
     description:
       "Compact earbuds with active noise cancellation and an eight-hour battery. The charging case adds a full day of listening.",
     specs: ["Active noise cancel", "8h battery", "USB-C case", "IPX4 sweatproof"],
+    image: "/products/pulse-buds.webp",
   },
   {
     id: "echo-speaker",
@@ -72,6 +76,7 @@ export const products: Product[] = [
     description:
       "A rugged little speaker with surprising volume and a twelve-hour battery. Clips to a bag so your sound travels with you.",
     specs: ["12h battery", "Bluetooth 5.3", "Clip-on loop", "Splashproof"],
+    image: "/products/echo-speaker.webp",
   },
   {
     id: "time-keeper",
@@ -87,6 +92,7 @@ export const products: Product[] = [
     description:
       "Heart rate, sleep, and workouts on a bright always-on display. A week of battery means you can leave the charger at home.",
     specs: ["Always-on display", "7-day battery", "Heart + sleep", "50m water rating"],
+    image: "/products/time-keeper.webp",
   },
   {
     id: "focus-band",
@@ -101,6 +107,7 @@ export const products: Product[] = [
     description:
       "A slim band that counts steps and tracks sleep without the distraction of a full smartwatch. Light enough to forget you are wearing it.",
     specs: ["Step + sleep", "14-day battery", "15g weight", "Swappable strap"],
+    image: "/products/focus-band.webp",
   },
   {
     id: "power-brick",
@@ -115,6 +122,7 @@ export const products: Product[] = [
     description:
       "A 20,000mAh battery with two USB-C ports that charges a phone three times over. Small enough to live in a daily bag.",
     specs: ["20000mAh", "Dual USB-C", "65W output", "LED charge meter"],
+    image: "/products/power-brick.webp",
   },
   {
     id: "clip-cam",
@@ -130,6 +138,7 @@ export const products: Product[] = [
     description:
       "A magnetic action camera that clips anywhere and shoots stabilized 4K. Waterproof out of the box, no case needed.",
     specs: ["4K stabilized", "Magnetic mount", "Waterproof 10m", "Voice control"],
+    image: "/products/clip-cam.webp",
   },
 ];
 
