@@ -41,6 +41,8 @@ export default function ProductPage({ params }: { params: { id: string } }) {
   }
 
   const related = relatedProducts(product);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const imageSrc = `${basePath}${product.image}`;
 
   return (
     <main className="container">
@@ -61,7 +63,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           }}
         >
           <Image
-            src={product.image}
+            src={imageSrc}
             alt={product.name}
             fill
             priority

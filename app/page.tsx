@@ -62,10 +62,14 @@ export default function HomePage() {
             <span className="section-count">{products.length} items</span>
           </div>
 
-          {/* A responsive grid: one card per product, straight from data. */}
+          {/* A responsive grid: one card per product, straight from data. Top 2 images prioritized for LCP. */}
           <div className="grid">
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
+            {products.map((product, index) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                priority={index < 2}
+              />
             ))}
           </div>
         </section>
