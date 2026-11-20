@@ -3,32 +3,33 @@
 A modern, high-performance product-catalog storefront built from the ground up with **Next.js 14**, **React 18**, and **TypeScript**. Fully static-exported and deployed to GitHub Pages with automated GitHub Actions CI/CD.
 
 🌐 **Live Deployed Site**: [https://asteroidhh.github.io/Shipyard/](https://asteroidhh.github.io/Shipyard/)  
-📦 **GitHub Repository**: [https://github.com/AsteroidHH/Shipyard](https://github.com/AsteroidHH/Shipyard)
+📦 **GitHub Repository**: [https://github.com/AsteroidHH/Shipyard](https://github.com/AsteroidHH/Shipyard)  
+🔀 **Pull Request #3**: [https://github.com/AsteroidHH/Shipyard/pull/3](https://github.com/AsteroidHH/Shipyard/pull/3)
 
 ---
 
-## ⚡ Lighthouse Performance: 94 / 100 (Mobile)
+## ⚡ Lighthouse Performance: 98 / 100 (Mobile)
 
-ShipYard was audited on **Mobile** using Google Chrome Lighthouse against the production static build.
+ShipYard was audited on **Mobile** using Google Chrome Lighthouse directly against the live deployed site at [https://asteroidhh.github.io/Shipyard/](https://asteroidhh.github.io/Shipyard/).
 
 | Audit Category | Score | Status |
 | :--- | :---: | :---: |
-| **Performance** | **94 / 100** | 🟢 Passed (Target: 90+) |
+| **Performance** | **98 / 100** | 🟢 Passed (Target: 90+) |
 | **Accessibility** | **100 / 100** | 🟢 Perfect |
 | **Best Practices** | **100 / 100** | 🟢 Perfect |
 | **SEO** | **100 / 100** | 🟢 Perfect |
 
-### Core Web Vitals
+### Core Web Vitals (Mobile)
 
 | Metric | Measured Value | Threshold | Status |
 | :--- | :---: | :---: | :---: |
-| **First Contentful Paint (FCP)** | `0.8 s` | < 1.8 s | 🟢 Fast |
-| **Largest Contentful Paint (LCP)** | `2.8 s` | < 2.5 s – 4.0 s | 🟢 Good |
+| **First Contentful Paint (FCP)** | `1.1 s` | < 1.8 s | 🟢 Fast |
+| **Largest Contentful Paint (LCP)** | `2.1 s` | < 2.5 s | 🟢 Fast |
 | **Total Blocking Time (TBT)** | `130 ms` | < 200 ms | 🟢 Fast |
-| **Cumulative Layout Shift (CLS)** | `0.022` | < 0.1 | 🟢 Zero Shift |
-| **Speed Index** | `1.1 s` | < 3.4 s | 🟢 Fast |
+| **Cumulative Layout Shift (CLS)** | `0.000` | < 0.1 | 🟢 Zero Shift |
+| **Speed Index** | `2.1 s` | < 3.4 s | 🟢 Fast |
 
-![Lighthouse Mobile Audit Report](docs/lighthouse-mobile-report.png)
+![Lighthouse Mobile Audit Report (98 Performance)](docs/lighthouse-mobile-report.png)
 
 ---
 
@@ -36,8 +37,8 @@ ShipYard was audited on **Mobile** using Google Chrome Lighthouse against the pr
 
 1. **Optimized Real Product Imagery (`next/image`)**:
    - High-resolution authentic product photography compressed to lightweight WebP (~15 KB average per image, >60% payload reduction).
-   - Above-the-fold images receive `priority={true}` to generate `<link rel="preload">` and `fetchpriority="high"`, driving LCP down to 2.8s on simulated 4G mobile.
-   - Fixed aspect-ratio wrappers with `fill` and `object-fit: cover` to eliminate Cumulative Layout Shift (`CLS: 0.022`).
+   - Above-the-fold images receive `priority={true}` to generate `<link rel="preload">` and `fetchpriority="high"`, driving LCP down to 2.1s on mobile.
+   - Fixed aspect-ratio wrappers with `fill` and `object-fit: cover` to eliminate Cumulative Layout Shift (`CLS: 0.000`).
 
 2. **Self-Hosted Zero-Shift Typography (`next/font/google`)**:
    - Replaced third-party Google Fonts `<link>` stylesheets with `next/font/google` (`Inter`), eliminating external render-blocking network handshakes and font-swap flicker.
@@ -52,7 +53,7 @@ ShipYard was audited on **Mobile** using Google Chrome Lighthouse against the pr
 
 5. **Static Export & GitHub Pages CI/CD**:
    - Configured `output: "export"` with exact repository `basePath: "/Shipyard"` and `trailingSlash: true` in `next.config.mjs`.
-   - Automated workflow in `.github/workflows/deploy.yml` triggers on push to `main`, builds the app with Node.js 20, and publishes the static `out/` bundle directly to GitHub Pages.
+   - Automated workflow in `.github/workflows/deploy.yml` builds the app with Node.js 20 and publishes the static `out/` bundle directly to GitHub Pages.
 
 ---
 
@@ -120,4 +121,4 @@ npm run build
 
 1. **Part 1 — Catalog Setup**: Scaffolding Next.js + TypeScript, dynamic routing (`/products/[id]`), `generateStaticParams`, responsive CSS grid, and `notFound()`.
 2. **Part 2 — Performance Optimization**: `next/image`, `next/font`, `next/dynamic` code splitting, and dynamic SEO metadata.
-3. **Part 3 — Measure, Deploy & Ship**: Lighthouse Mobile 90+ verified (94/100), loading & error states, GitHub Actions workflow, and GitHub Pages deployment.
+3. **Part 3 — Measure, Deploy & Ship**: Lighthouse Mobile 90+ verified (98/100), loading & error states, GitHub Actions workflow, and GitHub Pages deployment.
