@@ -1,12 +1,35 @@
+import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProductCard from "../../components/ProductCard";
+import ProductReviews from "../../components/ProductReviews";
 import Stars from "../../components/Stars";
 import { getProduct, products, relatedProducts } from "../../data/products";
 
 // Pre-build one static page per product at build time.
 export function generateStaticParams() {
   return products.map((product) => ({ id: product.id }));
+}
+
+// Generate unique per-product metadata for search and browser tab titles.
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const product = getProduct(params.id);
+  if (!product) {
+    return {
+      title: "Product Not Found | ShipYard",
+      description: "The requested item could not be found in our catalog.",
+    };
+  }
+
+  return {
+    title: `${product.name} — ${product.category}`,
+    description: `${product.tagline} ${product.description}`,
+  };
 }
 
 export default function ProductPage({ params }: { params: { id: string } }) {
@@ -34,10 +57,18 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           className="detail-art"
           style={{
             background: `linear-gradient(135deg, ${product.accent}, ${product.accent2})`,
+            position: "relative",
           }}
         >
           {product.badge && <span className="card-badge">{product.badge}</span>}
-          <span className="detail-emoji">{product.emoji}</span>
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            priority
+            sizes="(min-width: 720px) 340px, 100vw"
+            style={{ objectFit: "contain", padding: "2rem" }}
+          />
         </div>
 
         <div className="detail-body">
@@ -56,6 +87,13 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           </ul>
         </div>
       </article>
+
+      {/* Heavy below-the-fold component: lazy-loaded on demand */}
+      <ProductReviews
+        productId={product.id}
+        productName={product.name}
+        rating={product.rating}
+      />
 
       {related.length > 0 && (
         <section className="related">
